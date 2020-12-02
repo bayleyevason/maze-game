@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class ItemDoor : MonoBehaviour
 {
 
+    public int totalGems;
+
+
     bool canWin = false;
     public Text NoGems,Interact;
 
@@ -19,7 +22,7 @@ public class ItemDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        canWin = (FindObjectsOfType<ScoringSystem>().Length == 0);
+        canWin = (ScoringSystem.theScore == totalGems);
 
         Interact.enabled = true;
     }
